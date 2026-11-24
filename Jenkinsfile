@@ -8,10 +8,10 @@ pipeline{
             steps{
                 deleteDir()
                 sh '''
-                git clone https://github.com/Jibin-G-Jiji/portfolio-git.git
+                git clone https://github.com/siyadgit/Simple-Trial.git
                 ls -la
                 '''
-                stash name:'webpage', includes:'portfolio-git/**'
+                stash name:'webpage', includes:'Simple-Trial/**'
             }
         }
         stage('deploy'){
@@ -23,7 +23,7 @@ pipeline{
                 unstash 'webpage'
                 sh '''
                 sudo rm -rf /var/www/html/*
-                sudo cp -r portfolio-git/* /var/www/html/
+                sudo cp -r Simple-Trial/* /var/www/html/
                 ls -la /var/www/html/
                 '''
             }
